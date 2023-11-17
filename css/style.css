@@ -82,3 +82,11 @@
     left: 50%;
     transform: translate(-50%) rotate(135deg);
 }
+
+.stop, .begin{
+    background-color: lightskyblue;
+    padding: 10px 15px;
+    margin: 0px 10px;
+    color: white;
+    border-radius: 5px;
+}

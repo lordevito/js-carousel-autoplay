@@ -15,9 +15,18 @@ const images = ['01.jpg', '02.jpg', '03.jpg', '04.jpg', '05.jpg'];
 const items = document.querySelector(`.items`);
 const prev = document.querySelector(`.prev`);
 const next = document.querySelector(`.next`);
+const stop = document.querySelector(`.stop`);
+const begin = document.querySelector(`.begin`);
+stop.addEventListener(`click`, function(){
+    clearInterval(start);
+});
+begin.addEventListener(`click`, function(){
+    setInterval(nextSlides, 3000)
+});
 
 
-let currentItem = 0;
+
+var currentItem = 0;
 
 for (let i = 0; i < images.length; i++){
 
@@ -85,3 +94,21 @@ next.addEventListener(`click`, function() {
     }
 
 });
+
+function nextSlides (){
+    if (currentItem > 0) {
+        domItems[currentItem].classList.remove(`active`);
+        currentItem--;
+        domItems[currentItem].classList.add (`active`);
+    }
+    if (currentItem === 0){
+        domItems[currentItem].classList.remove(`active`);
+        currentItem = 4;
+        domItems[currentItem].classList.add (`active`);  
+    }
+
+}
+
+const start = setInterval(nextSlides, 3000);
+
+
